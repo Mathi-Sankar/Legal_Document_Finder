@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_RX8jqnSAjob9L659c0kaLuntOhjR",
+  "orgId": "team_O4t12hPFrz5ILx5swn4VhGgQ",
+  "projectName": "legal-document-assistant-master",
+  "settings": {
+    "createdAt": 1784318911651,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}
