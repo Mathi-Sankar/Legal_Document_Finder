@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: lexretrieve-backend
+    env: docker
+    rootDir: Legal-IR-System/backend
+    dockerfilePath: Dockerfile
+    region: oregon
+    plan: free
+    healthCheckPath: /
