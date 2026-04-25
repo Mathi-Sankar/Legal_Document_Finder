@@ -34,6 +34,27 @@ Lexretrieve is a full-stack, AI-powered Information Retrieval (IR) system design
 - **Vector Database**: ChromaDB (Local Persistent)
 - **Data Pipeline**: Selenium (Web Scraping), PyPDF (Document Processing)
 
+### System Architecture Flow
+
+```mermaid
+graph TD
+    Client((React Frontend)) -->|REST API| FastAPI[FastAPI Backend]
+    
+    subgraph Data Ingestion
+        FastAPI -->|Start Scraper| Selenium[Selenium Web Scraper]
+        Selenium -->|Fetch PDFs| Courts[Legal Databases]
+        Selenium -->|Extract| PDFs[Raw PDF Documents]
+        PDFs -->|Chunking| PyPDF[PyPDF Processor]
+    end
+    
+    subgraph RAG Pipeline
+        PyPDF -->|Embeddings| Chroma[(ChromaDB Vector DB)]
+        FastAPI -->|Query| Chroma
+        Chroma -->|Relevant Chunks| GenerativeModel[Local AI/LLM]
+        GenerativeModel -->|Summary| FastAPI
+    end
+```
+
 ---
 
 ## 📖 How to Use

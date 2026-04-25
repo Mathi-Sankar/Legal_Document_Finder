@@ -1,0 +1,40 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop", "master" ]
+  pull_request:
+    branches: [ "main", "develop", "master" ]
+
+jobs:
+  test-backend:
+    name: Test FastAPI Backend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    - name: Install Dependencies
+      working-directory: ./Legal-IR-System/backend
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt pytest httpx
+    - name: Run Pytest
+      working-directory: ./Legal-IR-System/backend
+      run: pytest tests/
+
+  test-frontend:
+    name: Test React Frontend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - name: Install Dependencies
+      working-directory: ./Legal-IR-System/frontend
+      run: npm install vitest --save-dev
+    - name: Run Vitest
+      working-directory: ./Legal-IR-System/frontend
+      run: npx vitest run

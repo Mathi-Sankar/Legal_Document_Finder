@@ -8,3 +8,5 @@ pypdf
 python-multipart
 pydantic
 fpdf
+pytest==8.1.1
+httpx==0.27.0
