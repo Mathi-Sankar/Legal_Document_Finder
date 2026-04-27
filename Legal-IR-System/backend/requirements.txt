@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+selenium
+webdriver-manager
+chromadb
+sentence-transformers
+pypdf
+python-multipart
+pydantic
+fpdf
